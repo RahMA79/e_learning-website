@@ -1,0 +1,395 @@
+:root
+{
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+}
+body {
+  padding-top: 60px; /* Adjust this to match the height of your navbar */
+}
+li{
+  list-style-type: none;
+}
+img
+button{
+  display: block;
+}
+button
+{
+  cursor: pointer;
+}
+img { height: auto;
+display: flex; }
+html {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.75;
+}
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.h1,
+.h2,
+.h3 {
+  color: hsl(0, 0%, 9%);
+  font-family: 'League Spartan', sans-serif;
+  line-height: 1.3;
+}
+
+.grid-list {
+  display: grid;
+  gap: 30px;
+}
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Custom styles for the header */
+
+.navbar {
+  background-color: #fff !important; /* Remove the background color */
+  position: fixed; /* Makes the navbar stay at the top */
+  top: 0; /* Aligns the navbar to the top */
+  left: 0; /* Aligns to the left */
+  width: 100%; /* Ensures it spans the full width of the page */
+  z-index: 1000; /* Ensures it appears above other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.navbar-brand span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000; /* Black color for the brand text */
+}
+
+.navbar-brand.logo:hover
+{
+  transform: scale(1.1);
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000 !important; 
+}
+
+.nav-link:hover {
+  color: #F5827C !important; 
+}
+
+.btn-light {
+  color: #000 !important; 
+  font-weight: 600;
+}
+
+.btn-warning {
+  font-weight: 600;
+  background-color: #C3413B;
+  border-color: #C3413B;
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #F5827C;
+  border-color: #F5827C;
+}
+
+.btn-light
+{
+  color: #000 !important;
+
+}
+
+.navbar .form-control {
+  max-width: 400px;
+  border-radius: 20px;
+  border: 1px solid #ccc; 
+}
+
+.navbar .form-control:focus {
+  border-color: #F5827C!important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 64, 0.25);
+}
+.btn-outline-light
+{
+  color: #000;
+  width: 100px;
+}
+
+
+/* Styles for Hero Announcements */
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: text and image */
+  align-items: center; /* Align items vertically in the center */
+  gap: 40px; /* Add space between text and image */
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+  opacity: 0; /* Hidden initially */
+  transform: translateY(20px); /* Start from below */
+  transition: opacity 1s ease, transform 1s ease-in-out;
+  animation: fadeInSlideUp 1s ease forwards;
+}
+.span
+{
+  color:#C3413B;
+  
+}
+
+.hero-content {
+  text-align: left; /* Align text to the left */
+  
+}
+
+.hero-banner {
+  display:flex;
+  align-items: center;
+  gap: 10px; /* Add spacing between images */
+}
+
+.hero-banner .img-holder {
+  position: relative; /* Ensure images can be placed independently */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.hero-banner .img-holder.one {
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: 110px;  
+}
+.hero-banner .img-holder.one:hover
+{
+  transform: scale(1.05); /* Slightly enlarges the photo */
+  box-shadow: 0px 8px 15px #F5827C; /* Adds a shadow effect */
+}
+
+.hero-banner .img-holder.two {
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 110px;
+}
+.hero-banner .img-holder.two:hover{
+  transform: scale(1.05); /* Slightly enlarges the photo */
+  box-shadow: 0px 8px 15px #ccc; /* Adds a shadow effect */
+}
+.hero-banner .img-holder.three {
+  border-top-left-radius: 110px;
+  border-bottom-right-radius: 70px;
+  padding-top: 10px;
+}
+.hero-banner .img-holder.three:hover{
+  transform: scale(1.05); /* Slightly enlarges the photo */
+  box-shadow: 0px 8px 15px #fff; /* Adds a shadow effect */
+}
+
+.hero-banner.two-photos
+{
+  display: block;
+
+}
+.btn1
+{
+  padding: 12px 24px; /* Adjust the padding of the button */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  text-align: center;
+  border-radius: 8px; /* Rounded corners for the button */
+  background-color: #C3413B; /* Button background color */
+  color: #fff; /* Button text color */
+  display: inline-flex; /* For better alignment of icon and text */
+  align-items: center;
+  gap: 8px; /* Space between text and icon */
+  text-decoration: none; /* Remove underline */
+}
+
+.btn1:hover
+{
+  background-image: linear-gradient(90deg, #C3413B, #FF6F61 100%); 
+  border-color: transparent;
+}
+.course{
+padding-top: 6rem;
+padding-bottom: 2rem;
+}
+.section-subtitle
+{
+  text-align: center;
+  font-size: 42px;
+  font-weight: 600;
+  color: #C3413B;
+}
+.h2.section-title
+{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+.grid-list {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing between items */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 20px; /* Add space between the cards */
+}
+.course-card {
+  flex: 1 1 30%;               /* Each card takes 30% of the container width */
+  max-width: 400px;            /* Ensure the card doesn't grow beyond its design */
+  height: 100%;
+  background-color: #F5F2EB;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0; /* Initially hidden */
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-name: slideInFromRight;
+}
+.course-card:hover{
+  transform: scale(1.05); /* Slightly enlarges the photo */
+  box-shadow: 0px 8px 15px #ccc; /* Adds a shadow effect */
+}
+.course-card.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Moves to its normal position */
+}
+
+.course-card .img-cover { transition: var(--transition-2); }
+
+.course-card:is(:hover, :focus-within) .img-cover { transform: scale(1.1); }
+
+.course-card :is(.abs-badge, .badge) {
+  font-family: 'League Spartan', sans-serif;
+  border-radius: 5px;
+}
+
+.course-card .abs-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #DCDCDC;
+  color: #C3413B;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  padding: 6px 8px;
+  padding-block-end: 3px;
+}
+
+.course-card .abs-badge ion-icon {
+  font-size: 18px;
+  margin-block-end: 5px;
+  --ionicon-stroke-width: 50px;
+}
+
+.course-card .card-content { padding: 25px; }
+
+.course-card .badge {
+  max-width: max-content;
+  color: hsl(170, 75%, 41%);
+  line-height: 25px;
+  padding-inline: 10px;
+}
+
+.course-card .card-title:is(:hover, :focus) { color: #C3413B; }
+
+.course-card :is(.wrapper, .rating-wrapper, .card-meta-list, .card-meta-item) {
+  display: flex;
+  align-items: center;
+}
+
+.course-card .wrapper { gap: 10px; }
+
+.course-card .rating-wrapper { gap: 3px; }
+
+.course-card .rating-wrapper ion-icon { color:hsl(42, 94%, 55%); }
+
+.course-card .rating-text {
+  color:hsl(0, 0%, 9%);
+  font-size:1.4rem;
+  font-weight: 500;
+}
+
+.course-card .price {
+  color: #C3413B;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-block: 8px 15px;
+}
+
+.course-card .card-meta-list { 
+  flex-wrap: wrap;
+  padding-left: 0; 
+ }
+
+.course-card .card-meta-item {
+  
+  position: relative;
+  gap: 10px;
+}
+
+.course-card .card-meta-item:not(:last-child)::after {
+  content: "|";
+  display: inline-block;
+  color: #fff;
+  padding-inline: 10px;
+}
+
+.course-card .card-meta-item ion-icon {
+  color: hsl(0, 0%, 65%);
+  --ionicon-stroke-width: 50px;
+}
+
+.course-card .card-meta-item .span {
+  color: hsl(0, 0%, 9%);
+  font-size: 1.3rem;
+}
+.browse {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers the button horizontally */
+  align-items: flex-end; /* Aligns the button to the bottom */
+  padding-bottom: 20px; /* Adds padding from the bottom */
+  height: 100%; /* Ensure it takes full height of its parent container */
+}
+
+
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+  .navbar-nav {
+    padding-top: 10px;
+  }
+
+}
+/* Animation to fade in and slide up */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0; /* Initially hidden */
+  }
+  to {
+    transform: translateX(0); /* End at its normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
