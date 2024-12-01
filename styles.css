@@ -381,6 +381,82 @@ padding-bottom: 2rem;
   height: 100%; /* Ensure it takes full height of its parent container */
 }
 
+/* Mentor Card Styling */
+.team-card {
+  width: 280px;
+  text-align: center;
+  background-color: #F5F2EB;
+  border-radius: 12px;
+  padding: 30px 20px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: visible;
+  transition: transform 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.team-card h3 {
+  font-weight: bold;
+  font-family: 'League Spartan', sans-serif;
+  margin-top: 90px;
+}
+
+.team-card h3 a{
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-family: 'League Spartan', sans-serif;
+  margin-top: 90px;
+}
+.team-card h3 a:hover{
+  color: #C3413B;
+}
+
+
+.team-card p {
+  font-weight: 400;
+  font-family: 'League Spartan', sans-serif;
+}
+
+/* Image Container for positioning */
+.image-container {
+  position: absolute;
+  top: -130px;
+  /* Moves the image outside the card */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Centers the image */
+  width: 150px;
+  /* Image width */
+  height: 150px;
+  /* Image height */
+  overflow: visible;
+  z-index: 1;
+  /* Ensures the image appears above the card content */
+}
+
+.image-container img {
+  width: 160px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Hover Effect */
+.team-card:hover {
+  /* transform: translateY(-10px); */
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img:hover {
+  transform: scale(1.1);
+  /* Slight zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .stats-section {
   display: flex;
   justify-content: space-around;
@@ -579,6 +655,47 @@ padding-bottom: 2rem;
   }
 
 }
+/* Animation */
+
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 0.10s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);  /* Start off-screen below */
+    opacity: 0;  /* Initially hidden */
+  }
+
+  to {
+    transform: translateY(0);  /* End at its normal position */
+    opacity: 1;  /* Fully visible */
+  }
+}
+
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+  .navbar-nav {
+    padding-top: 10px;
+  }
+
+}
+
 /* Animation to fade in and slide up */
 @keyframes fadeInSlideUp {
   0% {
