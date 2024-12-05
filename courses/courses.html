@@ -4,8 +4,389 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../home/styles.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+          <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center logo" href="#">
+              <img src="../home/images/logo1.png" alt="Logo" width="50" height="50" class="me-2">
+              <span>E-Learning</span>
+            </a>
     
+            <!-- Toggler for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto me-4">
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.html#courses">Courses</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#">Team</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#">About Us</a></li>
+              </ul>
+    
+              <!-- Search bar -->
+              <form class="d-flex me-4">
+                <input class="form-control me-2" type="search" placeholder="Search courses..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+              </form>
+    
+              <!-- Cart -->
+              <a href="#" class="me-3 cart">
+                <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
+              </a>
+    
+              <!-- Login and Signup buttons -->
+              <a href="#" class="btn btn-light me-4">Login</a>
+              <a href="signup.html" class="btn btn-warning">Sign Up</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- Title Page -->
+     <div class="section-subtitle">Available Courses</div>
+     <h2 class="section-title">Featured Courses</h2>
+     <section class="courses-container">
+        <!-- Filter Section -->
+        <aside class="filter-section">
+          <h3>Filter by</h3>
+          <div class="filter-group">
+            <h4>Subject</h4>
+            <label><input type="checkbox"> Business</label>
+            <label><input type="checkbox"> Computer Science</label>
+            <label><input type="checkbox"> Information Technology</label>
+            <label><input type="checkbox"> Data Science</label>
+          </div>
+      
+          <div class="filter-group">
+            <h4>Language</h4>
+            <label><input type="checkbox"> English</label>
+            <label><input type="checkbox"> French</label>
+            <label><input type="checkbox"> Arabic</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Level</h4>
+            <label><input type="checkbox"> Beginner</label>
+            <label><input type="checkbox"> Intermediate</label>
+            <label><input type="checkbox"> Advanced</label>
+          </div>
+        </aside>
+      
+        <!-- Course Cards Section -->
+        <div class="courses-list">
+        
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="course-card">
+            <figure class="card-banner img-holder">
+              <img src="../home/images/course-3.jpg" alt="HTML and CSS Course" class="img-cover">
+            </figure>
+      
+            <div class="abs-badge">
+              <ion-icon name="time-outline"></ion-icon>
+              <span class="span">3 Weeks</span>
+            </div>
+      
+            <div class="card-content">
+              <span class="badge">Beginner</span>
+              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <div class="wrapper">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <p class="rating-text">(4.8/5 Rating)</p>
+              </div>
+              <data class="price" value="29">$29.00</data>
+              <ul class="card-meta-list">
+                <li class="card-meta-item">
+                  <ion-icon name="library-outline"></ion-icon>
+                  <span class="span">58 Lessons</span>
+                </li>
+                <li class="card-meta-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span class="span">20 Students</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+      
+           
+          
+           
+  
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+
