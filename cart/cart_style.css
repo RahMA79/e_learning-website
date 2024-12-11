@@ -1,0 +1,155 @@
+body {
+    padding: 35px;
+    padding-left: 138px;
+    padding-right: 100px;
+}
+
+.cart-sec {
+    margin-top: 70px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.cart-sec h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.cart-sec h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 46px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.course-image {
+    width: 220px;
+    height: 130px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.course-details {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.course-details h2 {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.course-details p {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.rating-number {
+    color: black;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 5px;
+}
+
+.rating-num {
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 5px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #f39c12;
+    margin: 5px 0;
+    margin-bottom: 10px;
+}
+
+.course-overview {
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+
+.actions a {
+    display: block;
+    color: #C3413B;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.actions a:hover {
+    color: #F5827C;
+}
+
+.price {
+    font-size: 18px;
+    color: #C3413B;
+    font-weight: bold;
+    margin-left: 250px;
+}
+
+.checkout-section {
+    margin-top: 20px;
+}
+
+.checkout-section h3 {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: gray;
+}
+
+.checkout-section h2 {
+    font-size: 42px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.checkout-btn {
+    display: inline-block;
+    /* Makes the <a> behave like a button */
+    background-color: #C3413B;
+    /* Button background color */
+    color: #fff;
+    /* Text color */
+    text-decoration: none;
+    /* Removes underline */
+    padding: 10px 120px;
+    /* Adds spacing inside the button */
+    margin-top: 10px;
+    border-radius: 5px;
+    /* Rounded corners */
+    font-size: 16px;
+    /* Adjusts font size */
+    font-weight: bold;
+    /* Makes the text bold */
+    text-align: center;
+    /* Centers text within the button */
+    cursor: pointer;
+    /* Changes cursor to pointer on hover */
+}
+
+.checkout-btn:hover {
+    background-image: linear-gradient(90deg, #C3413B, #FF6F61 100%);
+    border-color: transparent;
+}

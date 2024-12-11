@@ -1,3 +1,26 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    session_start();
+    $name = ($_POST['name']);
+    $email = strtolower($_POST['email']);
+    $password = $_POST['password'];
+
+    $conn = mysqli_connect("localhost", "root", "", "e_learning");
+    if (!$conn)
+        echo mysqli_connect_error();
+
+    mysqli_query($conn, "INSERT INTO `student`(`s_name`, `s_email`, `s_password`) VALUES ('$name','$email','$password')");
+    
+    $sql = "SELECT s_name FROM student WHERE s_email = '$email' AND s_password = '$password'";  //Same code used in login.php
+    $login = mysqli_query($conn, $sql);
+    $_SESSION['is_logged_in'] = true;
+    $row = mysqli_fetch_assoc($login);
+    $_SESSION['username'] = $row['s_name'];
+    header('location: ../home/home.php');                          
+    exit();
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +52,8 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-4">
-            <li class="nav-item"><a class="nav-link text-light" href="../home/home.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="../home/home.html#courses">Courses</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#courses">Courses</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#">Team</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#">About Us</a></li>
@@ -43,12 +66,12 @@
           </form>
 
           <!-- Cart -->
-          <a href="#" class="me-3 cart">
+          <a href="../cart/cart.html" class="me-3 cart">
             <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
 
           <!-- Login and Signup buttons -->
-          <a href="login.html" class="btn btn-light me-4">Login</a>
+          <a href="login.php" class="btn btn-light me-4">Login</a>
           <a href="#" class="btn btn-warning">Sign Up</a>
         </div>
       </div>
@@ -82,7 +105,7 @@
       <div class="divider">or signup with</div>
 
       <h6 style="text-align: center;">
-        Already have an account? <a href="login.html">Log in</a> </h6>
+        Already have an account? <a href="login.php">Log in</a> </h6>
     </form>
   </div>
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>

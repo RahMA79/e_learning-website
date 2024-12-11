@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$is_logged_in = isset($_SESSION['is_logged_in']);
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,13 +51,18 @@
           </form>
 
           <!-- Cart -->
-          <a href="#" class="me-3 cart">
+          <a href="../cart/cart.html" class="me-3 cart">
             <img src="images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
 
           <!-- Login and Signup buttons -->
-          <a href="../registration/login.html" class="btn btn-light me-4">Login</a>
-          <a href="../registration/signup.html" class="btn btn-warning">Sign Up</a>
+          <?php if($is_logged_in):?>
+            <span style = "font-size: 65%; margin-right: 2%;">Welcome <?php echo $username;?>!  </span>
+            <a href="../registration/logout.php" class="btn btn-light me-4">Logout</a>
+          <?php else:?>
+            <a href="../registration/login.php" class="btn btn-light me-4">Login</a>
+            <a href="../registration/signup.php" class="btn btn-warning">Sign Up</a>
+          <?php endif;?>
         </div>
       </div>
     </nav>
