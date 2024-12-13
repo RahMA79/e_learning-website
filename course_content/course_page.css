@@ -1,0 +1,159 @@
+body {
+    padding-top: 75px;
+    padding-left: 3px;
+    font-family: 'Poppins', sans-serif;
+    gap: 0px;
+}
+
+/* Custom styles for the header */
+
+.navbar {
+    background-color: #fff !important;
+    /* Remove the background color */
+    position: fixed;
+    /* Makes the navbar stay at the top */
+    top: 0;
+    /* Aligns the navbar to the top */
+    left: 0;
+    /* Aligns to the left */
+    width: 100%;
+    /* Ensures it spans the full width of the page */
+    z-index: 1000;
+    /* Ensures it appears above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a subtle shadow */
+}
+
+.navbar-brand span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    /* Black color for the brand text */
+}
+
+.navbar-brand.logo:hover {
+    transform: scale(1.1);
+}
+
+.course {
+    display: flex;
+    margin: 0px;
+}
+
+.course-main {
+    align-items: flex-start;
+    /* Align items to the top */
+
+}
+
+.course-video video {
+    max-width: 100%;
+    /* Video will take up at most 90% of the width of its container */
+    max-height: 60%;
+    /* Video will take up at most 60% of the container or viewport height */
+}
+
+
+
+.course-card {
+    background: white;
+    padding-left: 3%;
+}
+
+.course-card h1 {
+    padding-top: 1%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.course-statics {
+    gap: 50px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+}
+
+.course-statics div h2 {
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+}
+
+.details {
+    margin-top: 10px;
+}
+
+.features {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.course-statics div p {
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.course-desc {
+    display: flex;
+    gap: 100px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+}
+
+.course-inst {
+    display: flex;
+    gap: 100px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.course-inst h4 a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    margin-top: 90px;
+}
+
+.course-inst h4 a:hover {
+    color: #C3413B;
+}
+
+
+
+.course-content {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* width: 100%; */
+    overflow: hidden;
+}
+
+.clickable-item {
+    cursor: pointer;
+    /* Changes cursor to a pointer to indicate interactivity */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.clickable-item:hover {
+    background-color: #f8f9fa;
+    /* Light gray background on hover */
+}
+
+.list-group {
+    border: none;
+    /* Removes the border around the list group */
+}
+
+.list-group-item {
+    border: none;
+    /* Removes borders from each list group item */
+}
+
