@@ -10,6 +10,21 @@
     <link
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
+    <script>
+      function openModal() {
+          document.getElementById('courseModal').style.display = 'flex';
+      }
+      function closeModal() {
+          document.getElementById('courseModal').style.display = 'none';
+      }
+      // Close modal if clicked outside of the content
+      window.addEventListener('click', function(event) {
+          const modal = document.getElementById('courseModal');
+          if (event.target === modal) {
+              closeModal();
+          }
+      });
+  </script>
 
 </head>
 <body>
@@ -30,11 +45,11 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto me-4">
-                <li class="nav-item"><a class="nav-link text-light" href="../home/home.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="../home/home.html#courses">Courses</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="#">Team</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#courses">Courses</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="#">About Us</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#About-us">About Us</a></li>
               </ul>
     
               <!-- Search bar -->
@@ -49,8 +64,8 @@
               </a>
     
               <!-- Login and Signup buttons -->
-              <a href="#" class="btn btn-light me-4">Login</a>
-              <a href="signup.html" class="btn btn-warning">Sign Up</a>
+              <a href="../registration/login.php" class="btn btn-light me-4">Login</a>
+              <a href="../registration/signup.php" class="btn btn-warning">Sign Up</a>
             </div>
           </div>
         </nav>
@@ -100,7 +115,7 @@
       
             <div class="card-content">
               <span class="badge">Beginner</span>
-              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <h3><a href="#courseModal" onclick="openModal()" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
               <div class="wrapper">
                 <div class="rating-wrapper">
                   <ion-icon name="star"></ion-icon>
@@ -138,7 +153,7 @@
       
             <div class="card-content">
               <span class="badge">Beginner</span>
-              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <h3><a href="#courseModal" onclick="openModal()" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
               <div class="wrapper">
                 <div class="rating-wrapper">
                   <ion-icon name="star"></ion-icon>
@@ -174,7 +189,7 @@
       
             <div class="card-content">
               <span class="badge">Beginner</span>
-              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <h3><a href="#courseModal" onclick="openModal()" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
               <div class="wrapper">
                 <div class="rating-wrapper">
                   <ion-icon name="star"></ion-icon>
@@ -210,7 +225,7 @@
       
             <div class="card-content">
               <span class="badge">Beginner</span>
-              <h3><a href="#" class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
+              <h3><a href="#courseModal" onclick="openModal()"class="card-title">Build Responsive Real-World Websites with HTML and CSS</a></h3>
               <div class="wrapper">
                 <div class="rating-wrapper">
                   <ion-icon name="star"></ion-icon>
@@ -380,12 +395,42 @@
           </div>
           
       
+          <div id="courseModal" class="modal">
+            <div class="modal-content">
+                <div class="course-title">Build Responsive Real-World Websites with HTML and CSS</div>
+                <ul class="card-meta-list">
+                  <li class="card-meta-item">
+                    <ion-icon name="library-outline"></ion-icon>
+                    <span class="span">58 Lessons</span>
+                  </li>
+                  <li class="card-meta-item">
+                    <ion-icon name="people-outline"></ion-icon>
+                    <span class="span">20 Students</span>
+                  </li>
+                  <li class="card-meta-item">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <span class="span">3 Weeks</span>
+                  </li>
+                </ul>
+                <p class="course-description">
+                    Learn the basics of web development, including HTML, CSS, and JavaScript, in this beginner-friendly course. This course is designed to provide you with a solid foundation to start building your own websites.
+                </p>
+        
+                <div class="price-and-btn">
+                  <div class="course-price">$49.99</div>
+                  <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+        </div>
+        
+  </div>
+      
+          
            
-          
-           
-  
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>
 
