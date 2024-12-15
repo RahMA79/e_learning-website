@@ -40,7 +40,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
             <li class="nav-item"><a class="nav-link text-light" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#courses">Courses</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#team">Team</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../my_learning/my_learning.html">My Learning</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#About-us">About Us</a></li>
           </ul>
 
