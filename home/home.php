@@ -118,7 +118,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
       <h2 class="h2 section-title">Pick a Course To Get Started</h2>
 
       <div class="browse">
-        <a href="../courses/courses.html" class="btn btn-light me-4 btn1 ">
+        <a href="../courses/courses.php" class="btn btn-light me-4 btn1 ">
           View more courses
         </a>
       </div>
