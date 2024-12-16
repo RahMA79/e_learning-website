@@ -98,7 +98,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       <button type="submit">Log in</button>
       <br>
       
-      <h6 style="text-align: center;">Forget password? <a href="forget_password.html">Forget Password</a></h6>
+      <h6 style="padding-top:10px;text-align: center;">Forget password?
+        <button type="button" class="btn btn-link p-0 reset-pass" style="text-decoration: underline; font-size: inherit; margin-left: 0;" data-toggle="modal" data-target="#forgetModal">
+          Reset Password
+        </button>
+      </h6>
 
       <div class="divider">or login with</div>
 
@@ -106,7 +110,46 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         Don't have an account? <a href="signup.php">Sign up</a> </h6>
     </form>
   </div>
+   <!-- forget Modal -->
+   <div class="modal fade" id="forgetModal" tabindex="-1" role="dialog" aria-labelledby="forgetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="justify-content: space-between;">
+          <h5 class="modal-title" id="forgetModalLabel">Reset Password</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+            style="background: none; border: none; padding: 0; margin: 0; font-size: 1.5rem; line-height: 1;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="email" class="form-label" style="font-size: 22px;">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label" style="font-size: 22px;">New Password</label>
+            <input type="text" class="form-control" id="password" placeholder="new password">
+          </div>
+          <div class="mb-3">
+            <label for="cnf_password" class="form-label" style="font-size: 22px;">Confirm Password</label>
+            <input type="email" class="form-control" id="cnf_password" placeholder="confirm password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #C3413B; color: #fff; border-radius: 5px; border: none; 
+         padding: 10px 20px; font-size: 1rem; font-weight: 600; cursor: pointer; 
+         transition: background-color 0.3s ease;"
+            onmouseover="this.style.backgroundColor='#A82E29';"
+            onmouseout="this.style.backgroundColor='#C3413B';">
+            Reset Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
