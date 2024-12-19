@@ -27,29 +27,23 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../home/styles.css">
   <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="../home/styles.css">
 </head>
 
-<body style="margin: 10px;">
+<body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <nav class="navbar navbar-expand-lg bg-primary shadow">
       <div class="container">
-        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center logo" href="#">
           <img src="../home/images/logo1.png" alt="Logo" width="50" height="50" class="me-2">
           <span>E-Learning</span>
         </a>
-
-        <!-- Toggler for mobile view -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item"><a class="nav-link text-light" href="../home/home.php">Home</a></li>
@@ -58,55 +52,48 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#">About Us</a></li>
           </ul>
-
-          <!-- Search bar -->
           <form class="d-flex me-4">
             <input class="form-control me-2" type="search" placeholder="Search courses..." aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
-
-          <!-- Cart -->
           <a href="../cart/cart.html" class="me-3 cart">
             <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
-
-          <!-- Login and Signup buttons -->
           <a href="login.php" class="btn btn-light me-4">Login</a>
           <a href="#" class="btn btn-warning">Sign Up</a>
         </div>
       </div>
     </nav>
   </header>
-  <div class="register" style="display: flex;">
-    <div>
-      <img src="images/login.jpg" alt="" style="margin-right: 80px;">
+  <div class="container register">
+    <div class="row">
+    <div class="col-md-7">
+        <img src="images/login.jpg" alt="" class="img-fluid">
+      </div>
+      <div class="col-md-4">
+        <form action="" method="post">
+          <h1>Sign up for learning</h1>
+          <div>
+            <input id="name" type="text" name="name" placeholder="Full name" required>
+          </div>
+          <div>
+            <input id="email" type="email" name="email" placeholder="Email" required>
+          </div>
+          <div id="signupPassword">
+            <input id="password" type="password" name="password" placeholder="Password" required>
+          </div>
+          <div class="checkbox">
+            <input id="terms" type="checkbox" name="terms" value="terms" required>
+            <label for="terms">I Accept all terms and privacy policy.</label>
+          </div>
+          <button type="submit">Sign up</button>
+          <div class="divider">or signup with</div>
+          <h6 style="text-align: center;">
+            Already have an account? <a href="login.php">Log in</a>
+          </h6>
+        </form>
+      </div>
     </div>
-    <form action="" method="post" style="margin-right: 80px;">
-      <h1>
-        Sign up for learning
-      </h1>
-      <div>
-        <input id="name" type="text" name="name" placeholder="Full name" required>
-      </div>
-
-      <div>
-        <input id="email" type="email" name="email" placeholder="Email" required>
-      </div>
-
-      <div id="signupPassword">
-        <input id="password" type="password" name="password" placeholder="Password" required>
-      </div>
-
-      <div class="checkbox">
-        <input id="terms" type="checkbox" name="terms" value="terms" required>
-        <label for="terms">I Accept all terms and privacy policy.</label>
-      </div>
-      <button type="submit">Sign up</button>
-      <div class="divider">or signup with</div>
-
-      <h6 style="text-align: center;">
-        Already have an account? <a href="login.php">Log in</a> </h6>
-    </form>
   </div>
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
