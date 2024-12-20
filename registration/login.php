@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
           <a href="login.php" class="btn btn-light me-4">Login</a>
-          <a href="#" class="btn btn-warning">Sign Up</a>
+          <a href="signup.php" class="btn btn-warning">Sign Up</a>
         </div>
       </div>
     </nav>
