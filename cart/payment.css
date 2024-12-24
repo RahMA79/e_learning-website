@@ -1,3 +1,4 @@
+
 body {
     padding: 35px;
     padding-right: 0px;
@@ -210,4 +211,193 @@ body {
 /* Hidden class to toggle visibility */
 .hidden {
     display: none;
+}
+
+@media (max-width: 430px) {
+    body {
+        padding: 4%;
+    }
+
+    .summary-container {
+        margin: 0;
+        /* Remove all margins */
+        padding: 10px 4%;
+        /* Ensure proper padding inside */
+        position: fixed;
+        /* Fixes the checkout section at the bottom */
+        bottom: 0;
+        /* Positions it at the bottom of the screen */
+        left: 0;
+        right: 0;
+        width: 100%;
+        /* Full width */
+        background-color: white;
+        /* Solid background for the checkout box */
+        z-index: 1000;
+        text-align: center;
+        /* Ensures the checkout box stays on top */
+    }
+
+    .summary-container h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .summary-detail {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .summary-detail.total {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .terms {
+        font-size: 10px;
+        margin: 10px 0;
+    }
+
+    .checkout-btn {
+        font-size: 14px;
+        padding: 10px;
+
+    }
+
+    .money-back {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    .payment-div {
+        margin-bottom: 70%;
+        margin-right: 0px;
+        /* Prevents overlap by adding more space below the last cart item */
+        /* Adjust this margin if the checkout section still overlaps */
+    }
+
+    .inputs input[type="text"]::placeholder {
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+/* Responsive styles for screens with max-width: 770px */
+@media (max-width: 770px) {
+    body {
+        padding: 20px 0px 20px 20px;
+        padding-top: 5%;
+    }
+
+    .payment-div {
+        margin-top: 60px;
+        margin-right: 4%;
+        width: 100%;
+    }
+
+    .payment-div h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .payment-div p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .payment-div label {
+        font-size: 14px;
+    }
+
+    .payment-div select {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .card-option {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .payment-div .card-option img {
+        width: 40px;
+        height: 30px;
+        margin: 5px;
+    }
+
+    .inputs input[type="text"]::placeholder {
+        font-size: 14px;
+    }
+
+    .payment-method .card-option,
+    .inputs {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .checkbox {
+
+
+        align-items: flex-start;
+        font-size: 12px;
+    }
+
+    .checkbox label {
+        font-size: 12px;
+    }
+
+    .checkbox input[type="checkbox"] {
+        width: 18px;
+        height: 16px;
+    }
+
+    /* Summary container adjustments */
+    .summary-container {
+        width: 100%;
+        padding-top: 30px;
+        margin: 10px 0;
+    }
+
+    .summary-container h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .summary-detail {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .summary-detail.total {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .terms {
+        font-size: 10px;
+        margin: 10px 0;
+    }
+
+    .checkout-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .money-back {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    /* Success box adjustments */
+    .success-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .success-box button {
+        width: 80%;
+        padding: 8px;
+        font-size: 14px;
+    }
 }

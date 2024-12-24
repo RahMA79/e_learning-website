@@ -28,3 +28,31 @@ h1{
     justify-self:center;
     font-family: "Open Sans", sans-serif;
 }
+/* Responsive Table Cards for Mobile */
+@media (max-width: 767px) {
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border: none;
+    }
+
+    table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex: 0 0 40%;
+        color: #495057;
+    }
+}

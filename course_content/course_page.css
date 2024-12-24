@@ -132,6 +132,7 @@ body {
 .course-content {
     border: 1px solid #ddd;
     border-radius: 5px;
+    max-height: 60%;
     /* width: 100%; */
     overflow: hidden;
 }
@@ -157,3 +158,224 @@ body {
     /* Removes borders from each list group item */
 }
 
+@media (max-width: 770px) {
+    .course-video video {
+        max-width: 100%;
+        max-height: 50%;
+        /* Adjust max height for smaller screens */
+    }
+
+    .course-card {
+        padding-left: 1%;
+        /* Increase padding for better spacing on smaller screens */
+    }
+
+    .course-card h1 {
+        font-size: 24px;
+        /* Reduce font size for better fit */
+    }
+
+    .course-statics {
+        gap: 30px;
+        margin-top: 15px;
+        /* Adjust spacing for smaller screens */
+    }
+
+    .course-statics div h2 {
+        font-size: 10px;
+    }
+
+    .course-statics div p {
+        font-size: 10px;
+    }
+
+    .details {
+        margin-top: 5px;
+        /* Reduce spacing for compact view */
+    }
+
+    .features {
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .features li {
+        margin: 3px 0;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .course-desc {
+        flex-direction: column;
+        gap: 20px;
+        /* Stack items vertically for smaller screens */
+        font-size: 14px;
+    }
+
+    .course-inst {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .course-inst h4 a {
+        margin-top: 20px;
+        font-size: 14px;
+        /* Reduce margin and font size for better fit */
+    }
+
+    .course-content {
+        margin: 10px;
+        border-radius: 3px;
+        /* Adjust spacing and border radius */
+    }
+
+    .clickable-item {
+        padding: 8px;
+        /* Add padding for smaller items */
+    }
+
+    .clickable-item:hover {
+        background-color: #f0f0f0;
+        /* Slightly lighter background for hover */
+    }
+
+    .list-group {
+        margin: 0;
+        padding: 0;
+    }
+
+    .list-group-item {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .card {
+        width: 100%;
+        /* Ensure full-width card for smaller screens */
+        margin: 0;
+        margin-left: 5px;
+    }
+
+    .card-header h5 {
+        font-size: 18px;
+        /* Adjust title size for smaller screens */
+    }
+
+    .accordion .accordion-button {
+        font-size: 14px;
+        /* Adjust section titles font size */
+    }
+
+    .accordion-body {
+        font-size: 12px;
+        /* Reduce font size in accordion body */
+    }
+
+    .list-group-item {
+        font-size: 12px;
+        /* Reduce list item font size */
+    }
+
+    .list-group-item span {
+        font-size: 10px;
+        /* Adjust the size of the duration text */
+    }
+}
+
+
+
+
+@media (max-width:430px) {
+
+    body {
+        padding-top: 60px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .navbar-brand span {
+        font-size: 1.2rem;
+    }
+
+    .course {
+        flex-direction: column;
+    }
+
+    .course-card h1 {
+        font-size: 22px;
+        /* Adjusted for small screens */
+    }
+
+    .course-statics {
+        gap: 20px;
+        border-bottom: none;
+        /* Removes extra styling on narrow screens */
+    }
+
+    .course-statics div h2 {
+        font-size: 10px;
+    }
+
+    .course-statics div p {
+        font-size: 10px;
+    }
+
+    .features li {
+        margin: 5px 0;
+        padding: 8px;
+        /* Adjusted padding for small screens */
+    }
+
+    .course-desc,
+    .course-inst {
+        flex-direction: column;
+        gap: 20px;
+        /* Stack items vertically with smaller gap */
+        font-size: 12px;
+        /* Smaller font for small screens */
+        border-bottom: none;
+    }
+
+    .course-inst h4 a {
+        font-size: 14px;
+    }
+
+    .course-video video {
+        max-height: 40%;
+        /* Shrink video size for narrow viewports */
+    }
+
+    .card {
+        width: 100%;
+        /* Ensure full-width card for smaller screens */
+        margin: 0;
+        margin-left: 5px;
+    }
+
+    .card-header h5 {
+        font-size: 18px;
+        /* Adjust title size for smaller screens */
+    }
+
+    .accordion .accordion-button {
+        font-size: 14px;
+        /* Adjust section titles font size */
+    }
+
+    .accordion-body {
+        font-size: 12px;
+        /* Reduce font size in accordion body */
+    }
+
+    .list-group-item {
+        font-size: 12px;
+        /* Reduce list item font size */
+    }
+
+    .list-group-item span {
+        font-size: 10px;
+        /* Adjust the size of the duration text */
+    }
+
+}

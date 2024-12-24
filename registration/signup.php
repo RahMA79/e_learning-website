@@ -11,11 +11,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     mysqli_query($conn, "INSERT INTO `student`(`s_name`, `s_email`, `s_password`) VALUES ('$name','$email','$password')");
     
-    $sql = "SELECT s_name FROM student WHERE s_email = '$email' AND s_password = '$password'";  //Same code used in login.php
+    $sql = "SELECT s_name, s_id FROM student WHERE s_email = '$email' AND s_password = '$password'";  //Same code used in login.php
     $login = mysqli_query($conn, $sql);
     $_SESSION['is_logged_in'] = true;
     $row = mysqli_fetch_assoc($login);
     $_SESSION['username'] = $row['s_name'];
+    $_SESSION['s_id'] = $row['s_id'];
     header('location: ../home/home.php');                          
     exit();
 
@@ -34,33 +35,45 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 </head>
 
 <body>
-  <header>
+<header>
     <nav class="navbar navbar-expand-lg bg-primary shadow">
       <div class="container">
+        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center logo" href="#">
           <img src="../home/images/logo1.png" alt="Logo" width="50" height="50" class="me-2">
           <span>E-Learning</span>
         </a>
+
+        <!-- Toggler for mobile view -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item"><a class="nav-link text-light" href="../home/home.php">Home</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#courses">Courses</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">Team</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">My Learning</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../my_learning/my_learning.php">My Learning</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#About-us">About Us</a></li>
           </ul>
-          <form class="d-flex me-4">
-            <input class="form-control me-2" type="search" placeholder="Search courses..." aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
-          <a href="../cart/cart.html" class="me-3 cart">
+
+          <!-- Search bar -->
+
+    <form class="d-flex me-4" method="POST" action="../search/search.php">
+        <input class="form-control me-2 search" type="search" name="searchQuery" placeholder="Search courses..." aria-label="Search" required>
+        <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
+
+          <!-- Cart -->
+          <a href="../cart/cart.php" class="me-3 cart">
             <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
-          <a href="login.php" class="btn btn-light me-4">Login</a>
-          <a href="#" class="btn btn-warning">Sign Up</a>
+
+          <!-- Login and Signup buttons -->
+            <a href="../registration/login.php" class="btn btn-light me-4">Login</a>
+            <a href="../registration/signup.php" class="btn btn-warning">Sign Up</a>
         </div>
       </div>
     </nav>

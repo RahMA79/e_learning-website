@@ -2,7 +2,14 @@
 session_start();
 $is_logged_in = isset($_SESSION['is_logged_in']);
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
-?><!DOCTYPE html>
+
+if ($is_logged_in && isset($_SESSION['i_id'])) {
+  if ($_SESSION['i_id'])
+    header('location: ../instructor_admin/admin_instructor.php');
+}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,18 +21,15 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
   <link
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
-
-
-
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <nav class="navbar navbar-expand-lg bg-primary shadow">
       <div class="container">
         <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center logo" href="#">
-          <img src="images/logo1.png" alt="Logo" width="50" height="50" class="me-2">
+          <img src="../home/images/logo1.png" alt="Logo" width="50" height="50" class="me-2">
           <span>E-Learning</span>
         </a>
 
@@ -37,32 +41,35 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-4">
-            <li class="nav-item"><a class="nav-link text-light" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#courses">Courses</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#team">Team</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="../my_learning/my_learning.html">My Learning</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#About-us">About Us</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#courses">Courses</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="../my_learning/my_learning.php">My Learning</a>
+            </li>
+            <li class="nav-item"><a class="nav-link text-light" href="../home/home.php#About-us">About Us</a></li>
           </ul>
 
           <!-- Search bar -->
-          <form class="d-flex me-4">
-            <input class="form-control me-2 search" type="search" placeholder="Search courses..." aria-label="Search">
+
+          <form class="d-flex me-4" method="POST" action="../search/search.php">
+            <input class="form-control me-2 search" type="search" name="searchQuery" placeholder="Search courses..."
+              aria-label="Search" required>
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
 
           <!-- Cart -->
-          <a href="../cart/cart.html" class="me-3 cart">
-            <img src="images/cart_icon.png" alt="Cart" width="30" height="30">
+          <a href="../cart/cart.php" class="me-3 cart">
+            <img src="../home/images/cart_icon.png" alt="Cart" width="30" height="30">
           </a>
 
           <!-- Login and Signup buttons -->
-          <?php if($is_logged_in):?>
-            <span style = "font-size: 65%; margin-right: 2%;">Welcome <?php echo $username;?>!  </span>
-            <a href="../registration/logout.php" class="btn btn-light me-4">Logout</a>
-          <?php else:?>
+          <?php if ($is_logged_in): ?>
+            <span style="font-size: 65%; margin-right: 2%;">Welcome <?php echo $username; ?>! </span>
+            <a href="../registration/logout.php" class="btn btn-light me-4">Log out</a>
+          <?php else: ?>
             <a href="../registration/login.php" class="btn btn-light me-4">Login</a>
             <a href="../registration/signup.php" class="btn btn-warning">Sign Up</a>
-          <?php endif;?>
+          <?php endif; ?>
         </div>
       </div>
     </nav>
@@ -125,241 +132,127 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
       <ul class="grid-list">
 
-        <li>
-          <div class="course-card">
+        <?php
 
-            <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-              <img src="images/course-3.jpg" width="370" height="220" loading="lazy"
-                alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-            </figure>
+        $conn = mysqli_connect("localhost", "root", "", "e_learning");
+        if (!$conn)
+          echo mysqli_connect_error();
 
-            <div class="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        $sql = "SELECT 
+                      c.c_id, 
+                      c.c_name, 
+                      c.c_desc,
+                      c.c_no_of_lessons,
+                      c.c_price,
+                      c.c_image,
+                      c.c_level,
+                      COUNT(o.s_id) AS student_count
+                  FROM 
+                      course c
+                  JOIN 
+                      old_cart o
+                  ON 
+                      c.c_id = o.c_id
+                  GROUP BY 
+                      c.c_id
+                  ORDER BY 
+                      student_count DESC
+                  LIMIT 3";
+        $result = mysqli_query($conn, $sql);
 
-              <span class="span">3 Weeks</span>
-            </div>
+        // course cards
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '
+              <li>
+                <div class="course-card">
+                  <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                    <img src="' . $row['c_image'] . '" width="370" height="220" loading="lazy"
+                      alt="' . $row['c_name'] . '" class="img-cover">
+                  </figure>
 
-            <div class="card-content">
+                  <div class="abs-badge">
+                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                    <span class="span">' . $row['c_no_of_lessons'] . ' Weeks</span>
+                  </div>
 
-              <span class="badge">Beginner</span>
+                  <div class="card-content">
+                    <span class="badge">' . $row['c_level'] . '</span>';
 
-              <h3 class="h3">
-                <a href="#" class="card-title">Build Responsive Real- World Websites with HTML and CSS</a>
-              </h3>
+          if ($is_logged_in) {
+            $c_id = $row["c_id"];
+            $s_id = $_SESSION['s_id'];
+            $sql = "SELECT * FROM `old_cart` WHERE s_id = $s_id and c_id = $c_id;";
+            $is_present = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($is_present) == 0)
+              echo '<h3><a href="#courseModal" onclick="openModal(' . '\'' . $row['c_name'] . '\', ' . '\'' . $row['c_desc'] . '\', ' . '\'' . $row['c_no_of_lessons'] . '\', ' . '\'' . $row['c_price'] . '\', ' . '\'' . $row['c_id'] . '\')" class="card-title">' . $row["c_name"] . '</a></h3>';
+            else
+              echo '<h3><a href="../course_content/course_page.php?c_id=' . $row['c_id'] . '" class="card-title">' . $row["c_name"] . '</a></h3>';
+          } else
+            echo '<h3><a href="#courseModal" onclick="openModal(' . '\'' . $row['c_name'] . '\', ' . '\'' . $row['c_desc'] . '\', ' . '\'' . $row['c_no_of_lessons'] . '\', ' . '\'' . $row['c_price'] . '\', ' . '\'' . $row['c_id'] . '\')" class="card-title">' . $row["c_name"] . '</a></h3>';
+          echo
+            '<div class="wrapper">
+                      <div class="rating-wrapper">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
+                      <p class="rating-text">(4.8/5 Rating)</p>
+                    </div>
 
-              <div class="wrapper">
+                    <data class="price" value="' . $row['c_price'] . '">$' . $row['c_price'] . '</data>
+                    <ul class="card-meta-list">
+                      <li class="card-meta-item">
+                        <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                        <span class="span">' . $row['c_no_of_lessons'] . ' Lessons</span>
+                      </li>
 
-                <div class="rating-wrapper">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
+                      <li class="card-meta-item">
+                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                        <span class="span">' . $row['student_count'] . ' Students</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </li>
+            ';
+        }
 
-                <p class="rating-text">(4.8/5 Rating)</p>
-
-              </div>
-
-              <data class="price" value="29">$29.00</data>
-
-              <ul class="card-meta-list">
-
-                <li class="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">58 Lessons</span>
-                </li>
-
-                <li class="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">20 Students</span>
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="course-card">
-
-            <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-              <img src="images/course-3.jpg" width="370" height="220" loading="lazy"
-                alt="Java Programming Masterclass for Software Developers" class="img-cover">
-            </figure>
-
-            <div class="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-              <span class="span">8 Weeks</span>
-            </div>
-
-            <div class="card-content">
-
-              <span class="badge">Advanced</span>
-
-              <h3 class="h3">
-                <a href="#" class="card-title">Java Programming Masterclass for Software Developers</a>
-              </h3>
-
-              <div class="wrapper">
-
-                <div class="rating-wrapper">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
-
-                <p class="rating-text">(4.75 /5 Rating)</p>
-
-              </div>
-
-              <data class="price" value="49">$49.00</data>
-
-              <ul class="card-meta-list">
-
-                <li class="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">25 Lessons</span>
-                </li>
-
-                <li class="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">35 Students</span>
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="course-card">
-
-            <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-              <img src="images/course-3.jpg" width="370" height="220" loading="lazy"
-                alt="The Complete Flutter & Dart Development Course" class="img-cover">
-            </figure>
-
-            <div class="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-              <span class="span">3 Weeks</span>
-            </div>
-
-            <div class="card-content">
-
-              <span class="badge">Intermediate</span>
-
-              <h3 class="h3">
-                <a href="#" class="card-title">The Complete Flutter & Dart Development Course</a>
-              </h3>
-
-              <div class="wrapper">
-
-                <div class="rating-wrapper">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
-
-                <p class="rating-text">(4.9 /5 Rating)</p>
-
-              </div>
-
-              <data class="price" value="35">$35.00</data>
-
-              <ul class="card-meta-list">
-
-                <li class="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">93 Lessons</span>
-                </li>
-
-                <li class="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">18 Students</span>
-                </li>
-
-              </ul>
-
-            </div>
-
-          </div>
-        </li>
+        ?>
 
       </ul>
 
     </div>
   </section>
 
-   <!--Our Team-->
-   <section id="team" style="padding: 50px 20px; text-align: center; background-color: white;">
+  <!--Our Team-->
+  <section id="team" style="padding: 50px 20px; text-align: center; background-color: white;">
     <p class="section-subtitle" style="margin-bottom: 150px;">Meet Our Instructors</p>
 
     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding-top: -100px;">
 
-      <!-- Mentor 1 -->
-      <div class="team-card">
-        <div class="image-container">
-          <img src="images/instructor1.jpg" alt="Ronald Richards">
-        </div>
-        <h3><a href="../instructor/instructor.html">Ronald Richards</a></h3>
-        <p>Business</p>
-        <p>⭐ 4.6</p>
-      </div>
+      <!-- Mentor cards -->
+      <?php
 
-      <!-- Mentor 2 -->
-      <div class="team-card">
-        <div class="image-container">
-          <img src="images/instructor5.jpg" alt="Theresa Webb">
-        </div>
-        <h3><a href="../instructor/instructor.html">Theresa Webb</a></h3>
-        <p>Web Development</p>
-        <p>⭐ 4.5</p>
-      </div>
+      $sql = "SELECT i_name, i_image, i_bio, i_id FROM instructor WHERE i_id < 5";
+      $result = mysqli_query($conn, $sql);
 
-      <!-- Mentor 3 -->
-      <div class="team-card">
-        <div class="image-container">
-        <img src="images/instructor2.jpg" alt="Leslie Alexander">
-      </div>
-        <h3><a href="../instructor/instructor.html">Leslie Alexander</a></h3>
-        <p>Programming</p>
-        <p>⭐ 4.8</p>
-      </div>
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="team-card">
+                  <div class="image-container">
+                    <img src=' . $row['i_image'] . ' alt=' . $row['i_name'] . '>
+                  </div>
+                  <h3><a href="../instructor/instructor.php?i_id=' . $row['i_id'] . '">' . $row['i_name'] . '</a></h3>
+                  <p>' . $row['i_bio'] . '</p>
+                  <p>⭐ 4.6</p>
+                </div>';
+      }
+      ?>
 
-      <!-- Mentor 4 -->
-      <div class="team-card">
-        <div class="image-container">
-        <img src="images/instructor4.jpg" alt="Darrell Steward">
-      </div>
-        <h3><a href="../instructor/instructor.html">Darrell Steward</a></h3>
-        <p>Design</p>
-        <p>⭐ 4.7</p>
-      </div>
-
-    </div>
-    <div class="browse" style=" margin-right: 125px; margin-top: 20px;">
-      <a href="#" class="btn btn-light me-4 btn1 ">
-        View more
-      </a>
     </div>
   </section>
+
   <h2 class="h2 section-title " style="display: block;">Our Impact in Numbers</h2>
   <div class="container-status" style="padding-top: 4px ;">
     <section id="stats" class="stats-section">
@@ -381,6 +274,95 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
       </div>
     </section>
   </div>
+
+
+  <div id="courseModal" class="modal">
+    <div class="modal-content">
+      <div class="course-title" id="modalTitle">Build Responsive Real-World Websites with HTML and CSS</div>
+      <ul class="card-meta-list">
+        <li class="card-meta-item">
+          <ion-icon name="library-outline"></ion-icon>
+          <span class="span" id="modalno">58 Lessons</span>
+        </li>
+        <li class="card-meta-item">
+          <ion-icon name="people-outline"></ion-icon>
+          <span class="span">20 Students</span>
+        </li>
+        <li class="card-meta-item">
+          <ion-icon name="time-outline"></ion-icon>
+          <span class="span" id="modaltime">3 Weeks</span>
+        </li>
+      </ul>
+      <p class="course-description" id="modaldesc">
+        Learn the basics of web development, including HTML, CSS, and JavaScript, in this beginner-friendly course.
+        This course is designed to provide you with a solid foundation to start building your own websites.
+      </p>
+
+      <div class="price-and-btn">
+        <div class="course-price" id="modalprice">$49.99</div>
+        <button class="add-to-cart-btn" onclick="addChart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    var c_id;
+    function openModal(name, desc, no, price, id) {
+      document.getElementById('modalTitle').textContent = name;
+      document.getElementById('modaldesc').textContent = desc;
+      document.getElementById('modalno').textContent = no + ' lessons';
+      document.getElementById('modaltime').textContent = no + ' weeks';
+      document.getElementById('modalprice').textContent = '$' + price;
+      c_id = id;
+
+      document.getElementById('courseModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('courseModal').style.display = 'none';
+    }
+
+    function addChart() {
+      <?php
+      if (!$is_logged_in) {
+        echo "
+        alert('Please log in to add to cart');
+        return;
+        ";
+      }
+      ?>
+
+      // Use fetch to send c_id to the PHP script
+      fetch('../courses/add_to_cart.php', {
+        method: 'POST',
+        body: JSON.stringify({ c_id: c_id }), // Send c_id to PHP as JSON
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById('courseModal').style.display = 'none';
+            alert(data.message);
+          } else {
+            console.error('Error adding to cart');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Close modal if clicked outside of the content
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('courseModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+
+
   <footer class="footer" id="About-us">
     <div class="footer-top section">
       <div class="container grid-list">
@@ -405,7 +387,8 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
           <div class="footer-bottom">
             <div class="container">
               <p class="copyright">
-                Copyright 2024 All Rights Reserved by <a href="#" class="copyright-link"> Double Rahom & Double John ^_^</a>
+                Copyright 2024 All Rights Reserved by <a href="#" class="copyright-link"> Double Rahom & Double John
+                  ^_^</a>
               </p>
             </div>
           </div>
@@ -452,9 +435,12 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
   <script src="statistics.js"></script>
 
   <!-- Bootstrap JS -->
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

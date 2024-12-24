@@ -292,4 +292,49 @@ body {
 }
 
 
-
+.btn-primary
+{
+    background-color: #C3413B ;
+    border-color: white;
+}
+.btn-primary:hover{
+    background-color: #F5827C;
+    color: #000;
+    border-color: #000;
+}
+ /* Responsive Design */
+  @media (max-width: 768px) {
+    .courses-container {
+      flex-direction: column;
+    }
+  
+    /* Filter Section */
+  .filter-section {
+    max-width: 100%;
+  }
+  .filter-group{
+    display: inline-table;
+    padding-right: 8%;
+  }
+  
+    .courses-list {
+      order: 1;
+    }
+  
+    .course-card {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .filter-section {
+      max-width: 100%;
+    }
+    .filter-group{
+      display: inline-table;
+      padding-right: 11%;
+    }
+    .course-card {
+      flex: 1 1 100%;
+    }
+  }
