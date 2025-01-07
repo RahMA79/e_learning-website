@@ -41,7 +41,7 @@ if (isset($_POST['searchQuery'])) {
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <nav class="navbar navbar-expand-lg bg-primary shadow">
       <div class="container">
         <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center logo" href="#">
@@ -95,7 +95,7 @@ if (isset($_POST['searchQuery'])) {
   <!-- Title Page -->
   <div class="section-subtitle"><?php echo 'Search Results for "' . $search . '"' ?></div>
   <section class="my-learning">
-    <div class="Learning">
+    <div class="Learning" style="width: 100%;">
       <?php
 
       $sql = "SELECT  course.c_id,
@@ -118,7 +118,7 @@ if (isset($_POST['searchQuery'])) {
       while ($row = $result->fetch_assoc()) {
         if (in_array($row['c_id'], $c_ids)) {
           echo
-            '<div class="card">' .
+            '<div class="card" style="width: 30%;">' .
             '<div class="card-header">' .
             '<img src="../home/' . $row['c_image'] . '" alt=' . $row['c_name'] . '/>' .
             '<div class="overlay">' .
@@ -132,7 +132,7 @@ if (isset($_POST['searchQuery'])) {
             '</div>';
         } else {
           echo
-            '<div class="card">' .
+            '<div class="card" style="width: 30%;">' .
             '<div class="card-header">' .
             '<img src="../home/' . $row['c_image'] . '" alt=' . $row['c_name'] . '/>' .
             '<div class="overlay">' .
@@ -245,7 +245,10 @@ if (isset($_POST['searchQuery'])) {
 
   </div>
 
-
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
